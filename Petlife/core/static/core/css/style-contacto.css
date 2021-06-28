@@ -1,0 +1,11 @@
+.form-contacto {
+  width: 132vh;
+  background: #8c997a;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: "calibri";
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
