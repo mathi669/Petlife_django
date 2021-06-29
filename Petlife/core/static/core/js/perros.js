@@ -41,7 +41,7 @@ const cardPerritos = (index, url) => {
       <div class="card-body">
           <h5 class="card-title">Perrito Perdido</h5>
           <p class="card-text">Es tu amiguito?</p>
-          <button class="btn btn-primary" onclick="verPerrito('info-perro.html?perrito=${url}')">Ver Perrito</button>
+          <button class="btn btn-primary" onclick="verPerrito('info_perro?perrito=${url}')">Ver Perrito</button>
       </div>
       </div>
   </div>`
