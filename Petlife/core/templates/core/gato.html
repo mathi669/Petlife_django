@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="{% static 'core/css/forms.css'%}" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h1 style="text-align: center !important;">
@@ -25,25 +27,21 @@
             </div>
             <input type="submit" class="btn btn-primary btnwidth" id="id_guardar" value="Guardar">
             <!-- <input type="reset" class="btn btn-primary btnwidth" id="id_nuevo" value="Nuevo"> -->
-            <a class="btn btn-success btnwidth" href="{% url 'gatos' 'ins' 1 %}">Nuevo</a>
-            {% if id != 1 %}
-            <a class="btn btn-danger btnwidth" href="{% url 'gatos' 'del' id %}">Eliminar</a>
-            {% endif %}
-            <a class="btn btn-info btnwidth" href="/">Inicio</a>
-            {% if mesg %}
-            <div id="form_message" class="alert alert-danger" role="alert">{{ mesg }}</div>
+            <a class="btn btn-success btnwidth" href="{% url 'gatos' 'ins' 1 %}">Nuevo</a> {% if id != 1 %}
+            <a class="btn btn-danger btnwidth" href="{% url 'gatos' 'del' id %}">Eliminar</a> {% endif %}
+            <a class="btn btn-info btnwidth" href="/">Inicio</a> {% if mesg %}
+            <div id="form_message" class="alert alert-primary text-center" role="alert">{{ mesg }}</div>
             {% endif %}
         </form>
-        {% endif %}
-        {% if list %}
-        <table id="tabla_datos">
+        {% endif %} {% if list %}
+        <table class="table table-striped" id="tabla_datos">
             <thead>
                 <tr>
                     <th>id_mascota</th>
                     <th>edad</th>
                     <th>raza</th>
                     <th>Imagen</th>
-                    <th>Especie</th>
+                    <th></th>
                     <th class="titulo_boton">Editar</th>
                     <th class="titulo_boton">Eliminar</th>
                 </tr>
@@ -56,10 +54,8 @@
                     <td>{{ ve.raza }}</td>
                     <td><img src="/media/{{ ve.imagen }}" class="mini_auto" alt=""></td>
                     <td>{{ ve.categoria }}</td>
-                    <td><a href="{% url 'gatos' 'upd' ve.id_mascota %}" 
-                        class="btn btn-primary btn-sm boton_chico">Editar</a></td>
-                    <td><a href="{% url 'gatos' 'del' ve.id_mascota %}" 
-                        class="btn btn-danger btn-sm boton_chico">Eliminar</a></td>
+                    <td><a href="{% url 'gatos' 'upd' ve.id_mascota %}" class="btn btn-primary btn-sm boton_chico">Editar</a></td>
+                    <td><a href="{% url 'gatos' 'del' ve.id_mascota %}" class="btn btn-danger btn-sm boton_chico">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -71,4 +67,5 @@
         <a href="{% url 'home' %}" class="btn btn-info btn-sm">Home page</a>
     </div>
 </body>
+
 </html>

@@ -41,7 +41,7 @@ def gatos(request, action, id):
  
     elif action == 'del':
         try:
-            Animal.objects.get(mascota=id).delete()
+            Animal.objects.get(id_mascota=id).delete()
             data["mesg"] = "¡El gatito fue eliminado correctamente!"
             return redirect(gatos, action='ins', id = '1')
         except:
