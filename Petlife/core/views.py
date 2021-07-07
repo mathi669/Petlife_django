@@ -1,12 +1,15 @@
+
 from django.shortcuts import redirect, render
 from .models import Animal, Especie
 from .forms import AnimalForm
- 
+
+
+
 # Create your views here.
  
 def home(request):
     return render(request, "core/home.html")
- 
+    
 def gatos_seccion(request):
     data = {"list": Animal.objects.all().order_by('id_mascota')}
     print(data)
@@ -50,6 +53,7 @@ def gatos(request, action, id):
     data["list"] = Animal.objects.all().order_by('id_mascota')
     return render(request, "core/gato.html", data)
 
+
 def poblar_bd(request):
     Animal.objects.all().delete()
     # Especie.objects.create( nombreEspecie="felix")
@@ -86,3 +90,7 @@ def p_rpass(request):
 
 def p_busca_perros(request):
     return render(request, "core/public/busca-perros.html")
+
+
+
+            
